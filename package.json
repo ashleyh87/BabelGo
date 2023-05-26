@@ -1,5 +1,5 @@
 {
-  "name": "fs-app-template",
+  "name": "BabelGo",
   "version": "2.0.0",
   "description": "Some boilerplate code to get you started - get shakin'!",
   "main": "index.js",
@@ -17,7 +17,7 @@
     "test:dev:models": "npm run test:dev -- --grep=model",
     "test:dev:routes": "npm run test:dev -- --grep=route"
   },
-  "author": "Fullstack Academy of Code",
+  "author": "Ashley Ho",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -26,7 +26,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
-    "sequelize": "^6.25.3"
+    "sequelize": "^6.31.1"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

@@ -1,14 +1,36 @@
-//this is the access point for all things database related!
+const db = require('./db');
+const User = require('./models/User');
+const Language = require('./models/Language');
+const Tone = require('./models/Tone');
+const Phrase = require('./models/Phrase');
+const Review = require('./models/Review');
 
-const db = require('./db')
+// Associations
+User.hasMany(Review, { foreignKey: 'userId' });
+Review.belongsTo(User, { foreignKey: 'userId' });
 
-const User = require('./models/User')
+Language.hasMany(Tone, { foreignKey: 'languageId' });
+Tone.belongsTo(Language, { foreignKey: 'languageId' });
 
-//associations could go here!
+Language.hasMany(Phrase, { foreignKey: 'languageId' });
+Phrase.belongsTo(Language, { foreignKey: 'languageId' });
+
+Tone.hasMany(Phrase, { foreignKey: 'toneId' });
+Phrase.belongsTo(Tone, { foreignKey: 'toneId' });
+
+User.hasMany(Review, { foreignKey: 'userId' });
+Review.belongsTo(User, { foreignKey: 'userId' });
+
+Phrase.hasMany(Review, { foreignKey: 'phraseId' });
+Review.belongsTo(Phrase, { foreignKey: 'phraseId' });
 
 module.exports = {
   db,
   models: {
     User,
+    Language,
+    Tone,
+    Phrase,
+    Review,
   },
-}
+};
