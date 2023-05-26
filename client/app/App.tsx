@@ -24,8 +24,6 @@ const App = () => {
         sx={{
           backgroundColor: currentTheme.palette.background.default,
           color: currentTheme.palette.text.primary,
-          m: 0,
-          p: 2,
         }}
       >
         <Navbar />

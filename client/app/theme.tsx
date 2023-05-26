@@ -32,79 +32,104 @@ let lightTheme = createTheme({
     borderRadius: 10,
   },
   typography: {
-    fontFamily: "Helvetica",
+    fontFamily: "Roboto",
     h1: {
-      fontSize: "2rem",
-      fontWeight: "bold",
+      fontSize: "3.75rem",
+      fontWeight: "lighter",
+      letterSpacing: -1.5,
+      "@media (min-width:600px)": {
+        fontSize: "6rem",
+      },
+    },
+    h2: {
+      fontSize: "3rem",
+      fontWeight: "lighter",
+      letterSpacing: -0.5,
+      "@media (min-width:600px)": {
+        fontSize: "3.75rem",
+      },
+    },
+    h3: {
+      fontSize: "2.125rem",
+      fontWeight: "regular",
+      letterSpacing: 0,
       "@media (min-width:600px)": {
         fontSize: "3rem",
       },
     },
-    h2: {
+    h4: {
       fontSize: "1.5rem",
-      fontWeight: "bold",
+      fontWeight: "regular",
+      letterSpacing: 0.25,
       "@media (min-width:600px)": {
-        fontSize: "2rem",
+        fontSize: "2.125rem",
       },
     },
-    h3: {
-      fontSize: "1.2rem",
-      fontWeight: "bold",
+    h5: {
+      fontSize: "1rem",
+      fontWeight: "medium",
+      letterSpacing: 0,
       "@media (min-width:600px)": {
         fontSize: "1.5rem",
       },
     },
-    h4: {
-      fontSize: "1rem",
-      fontWeight: "bold",
-      "@media (min-width:600px)": {
-        fontSize: "1.2rem",
-      },
-    },
-    h5: {
+    body1: {
       fontSize: "0.875rem",
-      fontWeight: "bold",
+      fontWeight: "regular",
+      letterSpacing: 0.5,
       "@media (min-width:600px)": {
         fontSize: "1rem",
-      },
-    },
-    body1: {
-      fontSize: "1rem",
-      "@media (min-width:600px)": {
-        fontSize: "1.2rem",
       },
     },
     body2: {
-      fontSize: "0.875rem",
+      fontSize: "0.75rem",
+      fontWeight: "regular",
+      letterSpacing: 0.25,
       "@media (min-width:600px)": {
-        fontSize: "1rem",
+        fontSize: "0.875rem",
       },
     },
     subtitle1: {
-      fontSize: "1rem",
+      fontSize: "0.75rem",
+      fontWeight: "regular",
       fontStyle: "italic",
+      letterSpacing: 0.15,
       "@media (min-width:600px)": {
-        fontSize: "1.2rem",
+        fontSize: "0.875rem",
       },
     },
     subtitle2: {
-      fontSize: "0.875rem",
+      fontSize: "0.625rem",
+      fontWeight: "medium",
       fontStyle: "italic",
+      letterSpacing: 0.15,
       "@media (min-width:600px)": {
-        fontSize: "1rem",
+        fontSize: "0.75rem",
+      },
+    },
+    button: {
+      fontSize: "0.75rem",
+      fontWeight: "medium",
+      letterSpacing: 1.25,
+      "@media (min-width:600px)": {
+        fontSize: "0.875rem",
       },
     },
     caption: {
-      fontSize: "0.75rem",
+      fontSize: "0.625rem",
+      fontWeight: "regular",
+      letterSpacing: 0.4,
       "@media (min-width:600px)": {
-        fontSize: "0.875rem",
+        fontSize: "0.75rem",
       },
     },
     overline: {
-      fontSize: "0.75rem",
+      fontSize: "0.6rem",
+      fontWeight: "regular",
       textTransform: "uppercase",
+      letterSpacing: 1.5,
       "@media (min-width:600px)": {
-        fontSize: "0.875rem",
+        fontSize: "0.625rem",
       },
     },
   },
@@ -144,79 +169,104 @@ let darkTheme = createTheme({
     borderRadius: 4,
   },
   typography: {
-    fontFamily: "Helvetica",
+    fontFamily: "Roboto",
     h1: {
-      fontSize: "2rem",
-      fontWeight: "bold",
+      fontSize: "3.75rem",
+      fontWeight: "lighter",
+      letterSpacing: -1.5,
+      "@media (min-width:600px)": {
+        fontSize: "6rem",
+      },
+    },
+    h2: {
+      fontSize: "3rem",
+      fontWeight: "lighter",
+      letterSpacing: -0.5,
+      "@media (min-width:600px)": {
+        fontSize: "3.75rem",
+      },
+    },
+    h3: {
+      fontSize: "2.125rem",
+      fontWeight: "regular",
+      letterSpacing: 0,
       "@media (min-width:600px)": {
         fontSize: "3rem",
       },
     },
-    h2: {
+    h4: {
       fontSize: "1.5rem",
-      fontWeight: "bold",
+      fontWeight: "regular",
+      letterSpacing: 0.25,
       "@media (min-width:600px)": {
-        fontSize: "2rem",
+        fontSize: "2.125rem",
       },
     },
-    h3: {
-      fontSize: "1.2rem",
-      fontWeight: "bold",
+    h5: {
+      fontSize: "1rem",
+      fontWeight: "medium",
+      letterSpacing: 0,
       "@media (min-width:600px)": {
         fontSize: "1.5rem",
       },
     },
-    h4: {
-      fontSize: "1rem",
-      fontWeight: "bold",
-      "@media (min-width:600px)": {
-        fontSize: "1.2rem",
-      },
-    },
-    h5: {
+    body1: {
       fontSize: "0.875rem",
-      fontWeight: "bold",
+      fontWeight: "regular",
+      letterSpacing: 0.5,
       "@media (min-width:600px)": {
         fontSize: "1rem",
-      },
-    },
-    body1: {
-      fontSize: "1rem",
-      "@media (min-width:600px)": {
-        fontSize: "1.2rem",
       },
     },
     body2: {
-      fontSize: "0.875rem",
+      fontSize: "0.75rem",
+      fontWeight: "regular",
+      letterSpacing: 0.25,
       "@media (min-width:600px)": {
-        fontSize: "1rem",
+        fontSize: "0.875rem",
       },
     },
     subtitle1: {
-      fontSize: "1rem",
+      fontSize: "0.75rem",
+      fontWeight: "regular",
       fontStyle: "italic",
+      letterSpacing: 0.15,
       "@media (min-width:600px)": {
-        fontSize: "1.2rem",
+        fontSize: "0.875rem",
       },
     },
     subtitle2: {
-      fontSize: "0.875rem",
+      fontSize: "0.625rem",
+      fontWeight: "medium",
       fontStyle: "italic",
+      letterSpacing: 0.15,
       "@media (min-width:600px)": {
-        fontSize: "1rem",
+        fontSize: "0.75rem",
+      },
+    },
+    button: {
+      fontSize: "0.75rem",
+      fontWeight: "medium",
+      letterSpacing: 1.25,
+      "@media (min-width:600px)": {
+        fontSize: "0.875rem",
       },
     },
     caption: {
-      fontSize: "0.75rem",
+      fontSize: "0.625rem",
+      fontWeight: "regular",
+      letterSpacing: 0.4,
       "@media (min-width:600px)": {
-        fontSize: "0.875rem",
+        fontSize: "0.75rem",
       },
     },
     overline: {
-      fontSize: "0.75rem",
+      fontSize: "0.6rem",
+      fontWeight: "regular",
       textTransform: "uppercase",
+      letterSpacing: 1.5,
       "@media (min-width:600px)": {
-        fontSize: "0.875rem",
+        fontSize: "0.625rem",
       },
     },
   },

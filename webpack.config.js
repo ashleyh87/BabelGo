@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: ['./client/index.tsx'],
   output: {
-    path: __dirname + '/public',
+    path: path.join(__dirname, '/public'),
     filename: 'bundle.js',
   },
   context: __dirname,
@@ -19,6 +19,10 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

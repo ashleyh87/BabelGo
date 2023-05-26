@@ -1,45 +1,105 @@
 import React from "react";
-import { Container, Typography, Box, Button, Divider } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "../../app/theme";
+import {
+  Typography,
+  Box,
+  Button,
+  Divider,
+  TextField,
+  Chip,
+  Stack,
+  Fab,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import SentimentSatisfiedRoundedIcon from "@mui/icons-material/SentimentSatisfiedRounded";
+import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
+import ThumbUpAltRoundedIcon from "@mui/icons-material/ThumbUpAltRounded";
+import ThumbDownAltRoundedIcon from "@mui/icons-material/ThumbDownAltRounded";
+import AddIcon from "@mui/icons-material/Add";
 
-// Primary button
-const PrimaryButton = styled(Button)(({ theme }) => ({
-  border: `1px solid ${theme.palette.primary.dark}`,
-  backgroundColor: `${theme.palette.primary.dark}`,
-  color: `${theme.palette.primary.main}`,
-  borderRadius: 20,
-  fontWeight: 600,
-  textTransform: "capitalize",
-  margin: 4,
-  padding: "10px 40px",
+// Default button
+const DefaultButton = styled(Button)(({ theme }) => ({
+  border: `1px solid ${theme.palette.primary.main}`,
+  backgroundColor: `${theme.palette.primary.main}`,
+  color: `${theme.palette.primary.contrastText}`,
+  borderRadius: theme.shape.borderRadius,
+  m: 4,
+  px: 2,
+  py: 1,
   "&:hover": {
     boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
-    backgroundColor: `${theme.palette.primary.dark}`,
-    color: `${theme.palette.primary.main}`,
+    backgroundColor: `${theme.palette.primary.main}`,
+    color: `${theme.palette.primary.contrastText}`,
   },
   "&:disabled": {
-    opacity: 0.5,
+    backgroundColor: `${theme.palette.grey[100]}`,
+    color: `${theme.palette.grey[300]}`,
+    border: `1px dashed ${theme.palette.grey[400]}`,
     cursor: "not-allowed",
   },
 }));
 
-// Secondary button
-const SecondaryButton = styled(Button)(({ theme }) => ({
-  border: `1px solid ${theme.palette.primary.dark}`,
+// Primary button
+const PrimaryButton = styled(Button)(({ theme }) => ({
+  border: `1px solid ${theme.palette.primary.light}`,
+  backgroundColor: `${theme.palette.primary.light}`,
   color: `${theme.palette.primary.dark}`,
-  borderRadius: 20,
-  fontWeight: 500,
-  textTransform: "capitalize",
-  margin: 4,
-  padding: "5px 20px",
+  borderRadius: theme.shape.borderRadius,
+  m: 4,
+  px: 2,
+  py: 1,
   "&:hover": {
     boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
     backgroundColor: `${theme.palette.primary.light}`,
     color: `${theme.palette.primary.dark}`,
   },
   "&:disabled": {
-    opacity: 0.5,
+    backgroundColor: `${theme.palette.grey[100]}`,
+    color: `${theme.palette.grey[300]}`,
+    border: `1px dashed ${theme.palette.grey[400]}`,
+    cursor: "not-allowed",
+  },
+}));
+
+// Accent button
+const AccentButton = styled(Button)(({ theme }) => ({
+  border: `1px solid ${theme.palette.secondary.main}`,
+  backgroundColor: `${theme.palette.secondary.main}`,
+  color: `${theme.palette.secondary.contrastText}`,
+  borderRadius: theme.shape.borderRadius,
+  fontWeight: 600,
+  m: 4,
+  px: 2,
+  py: 1,
+  "&:hover": {
+    boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
+    backgroundColor: `${theme.palette.secondary.main}`,
+    color: `${theme.palette.secondary.contrastText}`,
+  },
+  "&:disabled": {
+    backgroundColor: `${theme.palette.grey[100]}`,
+    color: `${theme.palette.grey[300]}`,
+    border: `1px dashed ${theme.palette.grey[400]}`,
+    cursor: "not-allowed",
+  },
+}));
+
+// Secondary button
+const SecondaryButton = styled(Button)(({ theme }) => ({
+  border: `1px solid ${theme.palette.primary.main}`,
+  color: `${theme.palette.primary.main}`,
+  borderRadius: theme.shape.borderRadius,
+  m: 4,
+  px: 2,
+  py: 1,
+  "&:hover": {
+    boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
+    backgroundColor: `${theme.palette.primary.light}`,
+    color: `${theme.palette.primary.dark}`,
+  },
+  "&:disabled": {
+    color: `${theme.palette.grey[200]}`,
+    border: `1px dashed ${theme.palette.grey[300]}`,
     cursor: "not-allowed",
   },
 }));
@@ -47,28 +107,49 @@ const SecondaryButton = styled(Button)(({ theme }) => ({
 // Text button
 const TextButton = styled(Button)(({ theme }) => ({
   color: `${theme.palette.primary.dark}`,
-  fontWeight: 400,
-  textTransform: "capitalize",
-  margin: 4,
-  padding: "5px 10px",
+  m: 4,
+  px: 2,
+  py: 1,
   "&:hover": {
     backgroundColor: `${theme.palette.primary.light}`,
     color: `${theme.palette.primary.dark}`,
   },
   "&:disabled": {
-    opacity: 0.5,
+    backgroundColor: `${theme.palette.background.default}`,
+    color: `${theme.palette.grey[300]}`,
     cursor: "not-allowed",
   },
 }));
 
+// TextField Styled
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  color: `${theme.palette.text.primary}`,
+}));
+
+const StyledFAB = styled(Fab)(({ theme }) => ({
+  color: `${theme.palette.secondary.contrastText}`,
+  backgroundColor: `${theme.palette.secondary.main}`,
+  boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
+  "&:hover": {
+    boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
+    color: `${theme.palette.secondary.contrastText}`,
+    backgroundColor: `${theme.palette.secondary.main}`,
+  },
+}));
+
+const handleClick = () => {
+  console.info("You clicked the Chip.");
+};
+
 const Style = () => {
   return (
-    <Container
+    <Box
       sx={{
-        width: "100%",
+        mx: 2,
       }}
     >
-      <Box sx={{ my: 6 }}>
+      <Typography variant="h1">Style Guide</Typography>
+      <Box sx={{ my: 2 }}>
         <Typography variant="h2">Logos</Typography>
         <Divider sx={{ my: 2 }} />
         <TextButton>
@@ -77,7 +158,14 @@ const Style = () => {
             alt="Logo"
             width="30px"
           />
-          <Typography variant="h1" sx={{ marginLeft: 2 }}>
+          <Typography
+            variant="h2"
+            sx={{
+              marginLeft: 2,
+              textTransform: "lowercase",
+              textDecoration: "bold",
+            }}
+          >
             BabelGo
           </Typography>
         </TextButton>
@@ -86,21 +174,152 @@ const Style = () => {
         <Typography variant="h2">Buttons</Typography>
         <Divider sx={{ my: 2 }} />
         <Box sx={{ my: 1 }}>
+          <Typography variant="h4">Default</Typography>
+          <DefaultButton sx={{ m: 2 }}>
+            <Typography variant="button">Default</Typography>
+          </DefaultButton>
+          <DefaultButton sx={{ m: 2 }}>
+            <Typography variant="button">Default</Typography>
+            <SentimentSatisfiedRoundedIcon sx={{ marginLeft: 1 }} />
+          </DefaultButton>
+          <DefaultButton sx={{ m: 2, paddingRight: 1 }}>
+            <MoreVertRoundedIcon sx={{ marginRight: 1 }} />{" "}
+            <Typography variant="button" sx={{ mx: 1 }}>
+              Default
+            </Typography>
+          </DefaultButton>
+          <DefaultButton sx={{ m: 2 }} disabled>
+            <Typography variant="button">Default</Typography>
+          </DefaultButton>
+        </Box>
+        <Box sx={{ my: 1 }}>
           <Typography variant="h4">Primary</Typography>
+          <PrimaryButton sx={{ m: 2 }}>
+            <Typography variant="button">Primary</Typography>
+          </PrimaryButton>
+          <PrimaryButton sx={{ m: 2 }}>
+            <Typography variant="button">Primary</Typography>{" "}
+            <SentimentSatisfiedRoundedIcon sx={{ marginLeft: 1 }} />
+          </PrimaryButton>
+          <PrimaryButton sx={{ m: 2, paddingRight: 1 }}>
+            <MoreVertRoundedIcon sx={{ marginRight: 1 }} />{" "}
+            <Typography variant="button" sx={{ mx: 1 }}>
+              Primary
+            </Typography>
+          </PrimaryButton>
+          <PrimaryButton sx={{ m: 2 }} disabled>
+            <Typography variant="button">Primary</Typography>
+          </PrimaryButton>
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <Typography variant="h4">Accent</Typography>
+          <AccentButton sx={{ m: 2 }}>
+            <Typography variant="button">Accent</Typography>
+          </AccentButton>
+          <AccentButton sx={{ m: 2 }}>
+            <Typography variant="button">Accent</Typography>
+            <SentimentSatisfiedRoundedIcon sx={{ marginLeft: 1 }} />
+          </AccentButton>
+          <AccentButton sx={{ m: 2, paddingRight: 1 }}>
+            <MoreVertRoundedIcon sx={{ marginRight: 1 }} />{" "}
+            <Typography variant="button" sx={{ mx: 1 }}>
+              Accent
+            </Typography>
+          </AccentButton>
+          <AccentButton sx={{ m: 2 }} disabled>
+            <Typography variant="button">Accent</Typography>
+          </AccentButton>
         </Box>
         <Box sx={{ my: 1 }}>
           <Typography variant="h4">Secondary</Typography>
+          <SecondaryButton sx={{ m: 2 }}>
+            <Typography variant="button">Secondary</Typography>
+          </SecondaryButton>
+          <SecondaryButton sx={{ m: 2 }}>
+            <Typography variant="button">Secondary</Typography>{" "}
+            <SentimentSatisfiedRoundedIcon sx={{ marginLeft: 1 }} />
+          </SecondaryButton>
+          <SecondaryButton sx={{ m: 2, paddingRight: 1 }}>
+            <MoreVertRoundedIcon sx={{ marginRight: 1 }} />{" "}
+            <Typography variant="button" sx={{ mx: 1 }}>
+              Secondary
+            </Typography>
+          </SecondaryButton>
+          <SecondaryButton sx={{ m: 2 }} disabled>
+            <Typography variant="button">Secondary</Typography>
+          </SecondaryButton>
         </Box>
         <Box sx={{ my: 1 }}>
           <Typography variant="h4">Text</Typography>
+          <TextButton sx={{ m: 2 }}>
+            <Typography variant="button">Text</Typography>
+          </TextButton>
+          <TextButton sx={{ m: 2 }}>
+            <Typography variant="button">Text</Typography>{" "}
+            <SentimentSatisfiedRoundedIcon sx={{ marginLeft: 1 }} />
+          </TextButton>
+          <TextButton sx={{ m: 2, paddingRight: 1 }}>
+            <MoreVertRoundedIcon sx={{ marginRight: 1 }} />{" "}
+            <Typography variant="button" sx={{ mx: 1 }}>
+              Text
+            </Typography>
+          </TextButton>
+          <TextButton sx={{ m: 2 }} disabled>
+            <Typography variant="button">Text</Typography>
+          </TextButton>
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <Typography variant="h4">FAB</Typography>
+          <Box sx={{ "& > :not(style)": { m: 1 } }}>
+            <StyledFAB size="small" color="secondary" aria-label="add">
+              <AddIcon />
+            </StyledFAB>
+            <StyledFAB size="medium" color="secondary" aria-label="add">
+              <AddIcon />
+            </StyledFAB>
+            <StyledFAB color="secondary" aria-label="add">
+              <AddIcon />
+            </StyledFAB>
+          </Box>
         </Box>
       </Box>
       <Box sx={{ my: 6 }}>
         <Typography variant="h2">Forms</Typography>
         <Divider sx={{ my: 2 }} />
+        <StyledTextField
+          label="Search field"
+          type="search"
+          variant="filled"
+          sx={{ m: 2 }}
+        />
+        <StyledTextField
+          label="Search field"
+          type="search"
+          variant="outlined"
+          sx={{ m: 2 }}
+        />
       </Box>
       <Box sx={{ my: 6 }}>
         <Typography variant="h2">Ratings</Typography>
+        <Divider sx={{ my: 2 }} />
+        <Stack direction="row" spacing={1}>
+          <Chip
+            variant="outlined"
+            icon={<ThumbUpAltRoundedIcon fontSize="small" />}
+            label="Awesome"
+            size="small"
+            onClick={handleClick}
+          />
+          <Chip
+            icon={<ThumbDownAltRoundedIcon fontSize="small" />}
+            label="NeedsWork"
+            size="small"
+            onClick={handleClick}
+          />
+        </Stack>
+      </Box>
+      <Box sx={{ my: 6 }}>
+        <Typography variant="h2">Avatar</Typography>
         <Divider sx={{ my: 2 }} />
       </Box>
       <Box sx={{ my: 6 }}>
@@ -700,16 +919,26 @@ const Style = () => {
           <Typography variant="subtitle2">subtitle 2</Typography>
         </Box>
         <Box sx={{ my: 1 }}>
+          <Typography variant="button">button</Typography>
+        </Box>
+        <Box sx={{ my: 1 }}>
           <Typography variant="caption">caption</Typography>
         </Box>
         <Box sx={{ my: 1 }}>
           <Typography variant="overline">overline</Typography>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
 export default Style;
 
-export { PrimaryButton, SecondaryButton, TextButton };
+export {
+  DefaultButton,
+  PrimaryButton,
+  AccentButton,
+  SecondaryButton,
+  TextButton,
+  StyledTextField,
+};
