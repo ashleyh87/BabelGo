@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  entry: ['./client/index.js'],
+  entry: ['./client/index.tsx'],
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js',
@@ -9,13 +11,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
         },
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
 };
