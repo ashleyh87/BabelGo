@@ -10,16 +10,15 @@
       // Function to check if it's currently daytime
       function isDayTime() {
         const currentHour = new Date().getHours();
-        return currentHour >= 6 && currentHour < 18; // Assuming daytime is between 6am to 6pm
+        return currentHour >= 19 && currentHour < 6;
       }
-  
-      // Function to set the theme based on time
+
       function setThemeBasedOnTime() {
         const htmlElement = document.documentElement;
         if (isDayTime()) {
-          htmlElement.setAttribute("data-theme", "light");
-        } else {
           htmlElement.setAttribute("data-theme", "dark");
+        } else {
+          htmlElement.setAttribute("data-theme", "light");
         }
       }
   

@@ -9,7 +9,6 @@ const App = () => {
   const [currentTheme, setCurrentTheme] = useState(lightTheme);
   useEffect(() => {
     const currentHour = new Date().getHours();
-    console.log("Current Hour:", currentHour);
 
     if (currentHour >= 19 || currentHour < 6) {
       setCurrentTheme(darkTheme);
