@@ -9,6 +9,8 @@ import {
   Chip,
   Stack,
   Fab,
+  Avatar,
+  AvatarGroup,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import SentimentSatisfiedRoundedIcon from "@mui/icons-material/SentimentSatisfiedRounded";
@@ -28,13 +30,13 @@ const DefaultButton = styled(Button)(({ theme }) => ({
   py: 1,
   "&:hover": {
     boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
-    backgroundColor: `${theme.palette.primary.main}`,
-    color: `${theme.palette.primary.contrastText}`,
+    backgroundColor: `${theme.palette.primary.contrastText}`,
+    color: `${theme.palette.primary.main}`,
   },
   "&:disabled": {
-    backgroundColor: `${theme.palette.grey[100]}`,
-    color: `${theme.palette.grey[300]}`,
-    border: `1px dashed ${theme.palette.grey[400]}`,
+    backgroundColor: `rgba(${theme.palette.grey[500]}, 0.2)`,
+    color: `rgba(${theme.palette.grey[500]}, 0.2)`,
+    border: `1px dashed ${theme.palette.grey[500]}`,
     cursor: "not-allowed",
   },
 }));
@@ -50,12 +52,13 @@ const PrimaryButton = styled(Button)(({ theme }) => ({
   py: 1,
   "&:hover": {
     boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
-    backgroundColor: `${theme.palette.primary.light}`,
-    color: `${theme.palette.primary.dark}`,
+    backgroundColor: `${theme.palette.primary.dark}`,
+    color: `${theme.palette.primary.light}`,
+    border: `1px solid ${theme.palette.primary.light}`,
   },
   "&:disabled": {
-    backgroundColor: `${theme.palette.grey[100]}`,
-    color: `${theme.palette.grey[300]}`,
+    backgroundColor: `rgba(${theme.palette.grey[100]}, 0.2)`,
+    color: `rgba(${theme.palette.grey[300]}, 0.2)`,
     border: `1px dashed ${theme.palette.grey[400]}`,
     cursor: "not-allowed",
   },
@@ -73,12 +76,12 @@ const AccentButton = styled(Button)(({ theme }) => ({
   py: 1,
   "&:hover": {
     boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
-    backgroundColor: `${theme.palette.secondary.main}`,
-    color: `${theme.palette.secondary.contrastText}`,
+    backgroundColor: `${theme.palette.secondary.contrastText}`,
+    color: `${theme.palette.secondary.main}`,
   },
   "&:disabled": {
-    backgroundColor: `${theme.palette.grey[100]}`,
-    color: `${theme.palette.grey[300]}`,
+    backgroundColor: `rgba(${theme.palette.grey[100]}, 0.2)`,
+    color: `rgba(${theme.palette.grey[300]}, 0.2)`,
     border: `1px dashed ${theme.palette.grey[400]}`,
     cursor: "not-allowed",
   },
@@ -98,7 +101,8 @@ const SecondaryButton = styled(Button)(({ theme }) => ({
     color: `${theme.palette.primary.dark}`,
   },
   "&:disabled": {
-    color: `${theme.palette.grey[200]}`,
+    backgroundColor: `rgba(${theme.palette.grey[200]}, 0.2)`,
+    color: `rgba(${theme.palette.grey[300]}, 0.2)`,
     border: `1px dashed ${theme.palette.grey[300]}`,
     cursor: "not-allowed",
   },
@@ -106,17 +110,17 @@ const SecondaryButton = styled(Button)(({ theme }) => ({
 
 // Text button
 const TextButton = styled(Button)(({ theme }) => ({
-  color: `${theme.palette.primary.dark}`,
+  color: `${theme.palette.text.primary}`,
   m: 4,
   px: 2,
   py: 1,
   "&:hover": {
-    backgroundColor: `${theme.palette.primary.light}`,
-    color: `${theme.palette.primary.dark}`,
+    backgroundColor: `${theme.palette.secondary.light}`,
+    color: `${theme.palette.secondary.dark}`,
   },
   "&:disabled": {
-    backgroundColor: `${theme.palette.background.default}`,
-    color: `${theme.palette.grey[300]}`,
+    backgroundColor: `rgba(${theme.palette.background.default}, 0.2)`,
+    color: `rgba(${theme.palette.grey[300]}, 0.2)`,
     cursor: "not-allowed",
   },
 }));
@@ -132,8 +136,8 @@ const StyledFAB = styled(Fab)(({ theme }) => ({
   boxShadow: "1px 1px 2.5px rgba(0, 0, 0, 0.5)",
   "&:hover": {
     boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.5)",
-    color: `${theme.palette.secondary.contrastText}`,
-    backgroundColor: `${theme.palette.secondary.main}`,
+    color: `${theme.palette.secondary.main}`,
+    backgroundColor: `${theme.palette.secondary.contrastText}`,
   },
 }));
 
@@ -156,15 +160,11 @@ const Style = () => {
           <img
             src="https://em-content.zobj.net/source/animated-noto-color-emoji/356/dizzy_1f4ab.gif"
             alt="Logo"
-            width="30px"
+            width="25px"
           />
           <Typography
-            variant="h2"
-            sx={{
-              marginLeft: 2,
-              textTransform: "lowercase",
-              textDecoration: "bold",
-            }}
+            variant="h5"
+            sx={{ marginLeft: 1, textTransform: "lowercase" }}
           >
             BabelGo
           </Typography>
@@ -309,18 +309,42 @@ const Style = () => {
             label="Awesome"
             size="small"
             onClick={handleClick}
+            sx={{ py: 1, px: 2 }}
           />
           <Chip
             icon={<ThumbDownAltRoundedIcon fontSize="small" />}
             label="NeedsWork"
             size="small"
             onClick={handleClick}
+            sx={{ py: 1, px: 2 }}
           />
         </Stack>
       </Box>
       <Box sx={{ my: 6 }}>
         <Typography variant="h2">Avatar</Typography>
         <Divider sx={{ my: 2 }} />
+        <Stack direction="row" spacing={2}>
+          <Avatar
+            alt="Remy Sharp"
+            src="https://i.pravatar.cc/300"
+            sx={{ width: 24, height: 24 }}
+          />
+          <Avatar alt="Remy Sharp" src="https://i.pravatar.cc/300" />
+          <Avatar
+            alt="Remy Sharp"
+            src="https://i.pravatar.cc/300"
+            sx={{ width: 56, height: 56 }}
+          />
+        </Stack>
+        <Box sx={{ display: "flex", justifyContent: "flex-start", my: 2 }}>
+          <AvatarGroup max={4}>
+            <Avatar alt="Remy Sharp" src="https://i.pravatar.cc/300" />
+            <Avatar alt="Travis Howard" src="https://i.pravatar.cc/300" />
+            <Avatar alt="Cindy Baker" src="https://i.pravatar.cc/300" />
+            <Avatar alt="Agnes Walker" src="https://i.pravatar.cc/300" />
+            <Avatar alt="Trevor Henderson" src="https://i.pravatar.cc/300" />
+          </AvatarGroup>
+        </Box>
       </Box>
       <Box sx={{ my: 6 }}>
         <Typography variant="h2">Light Scheme</Typography>

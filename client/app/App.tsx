@@ -3,6 +3,7 @@ import Navbar from "../features/navbar/Navbar";
 import AppRoutes from "./AppRoutes";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { lightTheme, darkTheme } from "./theme";
+import Footer from "../features/footer/Footer";
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(lightTheme);
@@ -27,7 +28,10 @@ const App = () => {
         }}
       >
         <Navbar />
-        <AppRoutes />
+        <Box sx={{ paddingTop: 10, px: 2 }}>
+          <AppRoutes />
+          <Footer />
+        </Box>
       </Box>
     </ThemeProvider>
   );

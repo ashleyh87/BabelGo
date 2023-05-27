@@ -1,23 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-body {
-  font-family: "Roboto", sans-serif;
+:root {
+  --primary-color: #006398;
+  --primary-light-color: #cde5ff;
+  --primary-dark-color: #001d31;
 }
 
+/* Light theme */
+[data-theme="light"] {
+  --primary-color: #006398;
+  --primary-light-color: #cde5ff;
+  --primary-dark-color: #001d31;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --primary-color: #93ccff;
+  --primary-light-color: #004b74;
+  --primary-dark-color: #cde5ff;
+}
+
+/* CSS styles using the primary color */
 a {
+  color: var(--primary-color);
   text-decoration: none;
 }
 
-label {
-  display: block;
+a:hover {
+  color: var(--primary-light-color);
+  text-decoration: none;
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
-}
-
-form div {
-  margin: 1em;
-  display: inline-block;
+html,
+body {
+  font-family: "Roboto", sans-serif;
 }
