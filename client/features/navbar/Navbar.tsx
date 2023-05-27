@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { logout } from "../../app/store";
 import { lightTheme, darkTheme } from "../../app/theme";
-import { PrimaryButton, SecondaryButton, TextButton } from "../style/Style";
+import { AccentButton, SecondaryButton, TextButton } from "../style/Style";
 import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
 import { ThemeProvider } from "@emotion/react";
 
@@ -67,19 +67,21 @@ const Navbar = () => {
             alignItems: "center",
           }}
         >
-          <AppsRoundedIcon />
+          <TextButton>
+            <AppsRoundedIcon />
+          </TextButton>
           {isLoggedIn ? (
-            <Box sx={{ mx: 2 }}>
+            <Box sx={{ mx: 1 }}>
               {/* The navbar will show these links after you log in */}
               <SecondaryButton type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </SecondaryButton>
             </Box>
           ) : (
-            <Box sx={{ mx: 2 }}>
+            <Box sx={{ mx: 1 }}>
               {/* The navbar will show these links before you log in */}
               <Link to="/login">
-                <PrimaryButton>Login</PrimaryButton>
+                <AccentButton>Login</AccentButton>
               </Link>
             </Box>
           )}
