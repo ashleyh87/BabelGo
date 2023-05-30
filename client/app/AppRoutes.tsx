@@ -5,6 +5,7 @@ import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
 import Style from "../features/style/Style";
 import { me } from "./store";
+import Menu from "../features/menu/Menu";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -18,9 +19,10 @@ const AppRoutes = () => {
     <>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/style" element={<Style />} />
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/style" element={<Style />} />
         </Routes>
       ) : (
         <Routes>
@@ -35,6 +37,7 @@ const AppRoutes = () => {
             element={<AuthForm name="signup" displayName="Sign Up" />}
           />
           <Route path="/style" element={<Style />} />
+          <Route path="/menu" element={<Menu />} />
         </Routes>
       )}
     </>

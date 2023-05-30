@@ -7,8 +7,11 @@ import { lightTheme, darkTheme } from "../../app/theme";
 import { AccentButton, SecondaryButton, TextButton } from "../style/Style";
 import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
 import { ThemeProvider } from "@emotion/react";
+import Menu from "../menu/Menu";
 
 const Navbar = () => {
+  const [currentTheme, setCurrentTheme] = useState(lightTheme);
+  const [showMenu, setShowMenu] = useState(false);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,7 +20,6 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  const [currentTheme, setCurrentTheme] = useState(lightTheme);
   useEffect(() => {
     const currentHour = new Date().getHours();
 
@@ -27,6 +29,10 @@ const Navbar = () => {
       setCurrentTheme(lightTheme);
     }
   }, []);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -67,9 +73,11 @@ const Navbar = () => {
             alignItems: "center",
           }}
         >
-          <TextButton>
+          {showMenu && <Menu />}
+          <TextButton onClick={toggleMenu}>
             <AppsRoundedIcon />
           </TextButton>
+
           {isLoggedIn ? (
             <Box sx={{ mx: 1 }}>
               {/* The navbar will show these links after you log in */}

@@ -63,6 +63,7 @@ const Home = () => {
           display: "flex",
           flexDirection: "column",
           textAlign: "center",
+          m: 2,
         }}
       >
         <Typography variant="h5">{intro}</Typography>
@@ -79,20 +80,22 @@ const Home = () => {
           sx={{
             width: "50%",
             height: "100%",
-            border: `1px solid ${currentTheme.palette.primary.contrastText}`,
+            backgroundColor: currentTheme.palette.primary.light,
+            border: `1px solid ${currentTheme.palette.primary.main}`,
             borderTopLeftRadius: currentTheme.shape.borderRadius,
             borderBottomLeftRadius: currentTheme.shape.borderRadius,
             display: "flex",
             flexDirection: "column",
+            marginRight: 1,
           }}
         >
           <Box
             sx={{
               px: 1,
-              borderBottom: `1px solid ${currentTheme.palette.primary.contrastText}`,
+              borderBottom: `1px solid ${currentTheme.palette.primary.main}`,
             }}
           >
-            <FormControl sx={{ minWidth: 125 }}>
+            <FormControl sx={{ minWidth: 125, m: 2 }}>
               <InputLabel>Languages</InputLabel>
               <Select>
                 {tones.map((tone, index) => (
@@ -103,12 +106,12 @@ const Home = () => {
               </Select>
             </FormControl>
           </Box>
-          <Box sx={{ px: 2, flexGrow: 1 }}>
+          <Box sx={{ px: 2, flexGrow: 1, m: 2 }}>
             <Typography variant="h1" sx={{ height: "60%" }}>
               Sample Text
             </Typography>
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, m: 1 }}>
             <Typography variant="body1" sx={{ height: "20%" }}>
               Functions
             </Typography>
@@ -118,17 +121,22 @@ const Home = () => {
           sx={{
             width: "50%",
             height: "100%",
-            backgroundColor: currentTheme.palette.primary.main,
+            backgroundColor: currentTheme.palette.background.default,
+            border: `1px solid ${currentTheme.palette.primary.main}`,
             borderTopRightRadius: currentTheme.shape.borderRadius,
             borderBottomRightRadius: currentTheme.shape.borderRadius,
             display: "flex",
             flexDirection: "column",
+            marginLeft: 1,
           }}
         >
-          <Box sx={{ px: 1 }}>
-            <FormControl
-              sx={{ minWidth: 125, color: currentTheme.palette.text.primary }}
-            >
+          <Box
+            sx={{
+              px: 1,
+              borderBottom: `1px solid ${currentTheme.palette.primary.main}`,
+            }}
+          >
+            <FormControl sx={{ minWidth: 125, m: 2 }}>
               <InputLabel>Tones</InputLabel>
               <Select>
                 {tones.map((tone, index) => (
@@ -139,11 +147,11 @@ const Home = () => {
               </Select>
             </FormControl>
           </Box>
-          <Box sx={{ px: 2, flexGrow: 1 }}>
+          <Box sx={{ px: 2, flexGrow: 1, m: 2 }}>
             <Typography variant="h1">Translated Sample</Typography>
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Stack direction="row" spacing={1} sx={{ py: 1, px: 2 }}>
+          <Box sx={{ flexGrow: 0, m: 1 }}>
+            <Stack direction="row" spacing={1} sx={{ px: 1 }}>
               <Chip
                 variant="outlined"
                 icon={<ThumbUpAltRoundedIcon fontSize="small" />}
@@ -155,7 +163,7 @@ const Home = () => {
               <Chip
                 variant="outlined"
                 icon={<ThumbDownAltRoundedIcon fontSize="small" />}
-                label="NeedsWork"
+                label="Needs Work"
                 size="small"
                 onClick={handleClick}
                 sx={{ py: 1, px: 2 }}
