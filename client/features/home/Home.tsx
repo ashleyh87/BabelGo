@@ -6,13 +6,15 @@ import {
   Typography,
   Stack,
   Chip,
-  FormControl,
-  InputLabel,
-  Select,
+  useMediaQuery,
   MenuItem,
+  Input,
+  TextField,
 } from "@mui/material";
+import SwapHorizRoundedIcon from "@mui/icons-material/SwapHorizRounded";
 import ThumbUpAltRoundedIcon from "@mui/icons-material/ThumbUpAltRounded";
 import ThumbDownAltRoundedIcon from "@mui/icons-material/ThumbDownAltRounded";
+import { current } from "@reduxjs/toolkit";
 
 const intros = [
   "Never Lost in Translation Again",
@@ -91,25 +93,29 @@ const Home = () => {
         >
           <Box
             sx={{
-              px: 1,
+              p: 1,
               borderBottom: `1px solid ${currentTheme.palette.primary.main}`,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <FormControl sx={{ minWidth: 125, m: 2 }}>
-              <InputLabel>Languages</InputLabel>
-              <Select>
-                {tones.map((tone, index) => (
-                  <MenuItem key={index} value={tone}>
-                    {tone}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+            <TextField select fullWidth helperText="Your Language" />
+            <SwapHorizRoundedIcon />
+            <TextField select fullWidth helperText="Translate into..." />
           </Box>
           <Box sx={{ px: 2, flexGrow: 1, m: 2 }}>
-            <Typography variant="h1" sx={{ height: "60%" }}>
-              Sample Text
-            </Typography>
+            <Input
+              placeholder="Text to be translated..."
+              multiline={true}
+              fullWidth
+              disableUnderline={true}
+              style={{
+                fontSize: currentTheme.typography.h1.fontSize,
+                fontWeight: currentTheme.typography.h1.fontWeight,
+              }}
+            />
           </Box>
           <Box sx={{ flexGrow: 0, m: 1 }}>
             <Typography variant="body1" sx={{ height: "20%" }}>
@@ -132,23 +138,26 @@ const Home = () => {
         >
           <Box
             sx={{
-              px: 1,
+              p: 1,
               borderBottom: `1px solid ${currentTheme.palette.primary.main}`,
             }}
           >
-            <FormControl sx={{ minWidth: 125, m: 2 }}>
-              <InputLabel>Tones</InputLabel>
-              <Select>
-                {tones.map((tone, index) => (
-                  <MenuItem key={index} value={tone}>
-                    {tone}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+            <TextField
+              select
+              fullWidth
+              label="Tones"
+              defaultValue="😐 Neutral"
+              helperText="Please select tone preference"
+            >
+              {tones.map((tone, index) => (
+                <MenuItem key={index} value={tone}>
+                  {tone}
+                </MenuItem>
+              ))}
+            </TextField>
           </Box>
           <Box sx={{ px: 2, flexGrow: 1, m: 2 }}>
-            <Typography variant="h1">Translated Sample</Typography>
+            <Typography variant="h1">Translated Text</Typography>
           </Box>
           <Box sx={{ flexGrow: 0, m: 1 }}>
             <Stack direction="row" spacing={1} sx={{ px: 1 }}>

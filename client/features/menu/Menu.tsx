@@ -22,6 +22,7 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 
 const Menu = () => {
   const [currentTheme, setCurrentTheme] = useState(lightTheme);
+
   useEffect(() => {
     const currentHour = new Date().getHours();
 
@@ -30,11 +31,25 @@ const Menu = () => {
     } else {
       setCurrentTheme(lightTheme);
     }
+
+    const handleClickOutside = (event) => {
+      const container = document.getElementById("menu-container");
+      if (container && !container.contains(event.target)) {
+        window.location.href = "/";
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   return (
     <ThemeProvider theme={currentTheme}>
       <Box
+        id="menu-container"
         sx={{
           position: "absolute",
           top: 55,

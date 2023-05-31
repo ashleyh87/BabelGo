@@ -29,7 +29,7 @@ let lightTheme = createTheme({
     },
   },
   shape: {
-    borderRadius: 10,
+    borderRadius: 4,
   },
   typography: {
     fontFamily: "Roboto",
